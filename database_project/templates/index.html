@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <title>car in NSYSU</title>
+
+	    <meta name="description" content="Source code generated HEroKuma">
+	    <meta name="author" content="HEroKuma">
+
+	    <!--link href="{% static "css/home/bootstrap.min.css" %}" rel="stylesheet"-->
+	    <!--link href="{% static "css/home/style.css" %}" rel="stylesheet"-->
+	</head>
+	<body>
+		{{a}}
+		{% if request.user.is_authenticated %}
+			<p>
+				{{request.user}} also login
+				<a href="/accounts/logout/">logout</a>
+			</p>
+		{% else %}
+			<p> not login~ <a href="/accounts/login/">login</a></p>
+		{% endif %}
+			<p><a href="/accounts/register/">註冊</a></p>
+	</body>
+</html>
