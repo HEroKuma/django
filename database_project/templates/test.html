@@ -1,0 +1,13 @@
+<html>
+	<body>
+		{% for i in List%}
+			<p>{{i.name}}<p>
+			<p>{{i.description}}<p>
+		{% endfor%}
+		{% if request.user.is_authenticated%}
+			<p>you are a member!</p>
+		{% else %}
+			<p>you can't see this, except you login<a href="/accounts/login/">login	</a></p>
+		{% endif%}
+	</body>
+</html>

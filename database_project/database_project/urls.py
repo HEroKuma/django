@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from views import index, register#, login, logout
 from home_page.views import home
+from testdb.views import share
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^home/$', home),
-    url(r'^accounts/login/$',login,{'template_name':'login.html'}),
-    url(r'^accounts/logout/$', logout,{'next_page': '/index/'}),
+    url(r'^accounts/login/$',login,{'template_name':'login.html',}),
+    url(r'^accounts/logout/$', logout,{'next_page': '/home/'}),
     url(r'^index/$', index),
-    url(r'^accounts/register/$',register)
-]
+    url(r'^accounts/register/$',register),
+    url(r'^test/$', share),
+]+static(settings.STATIC_URL)

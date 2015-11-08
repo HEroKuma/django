@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 def login(request):
 	if request.user.is_authenticated():
-		return HttpResponseRedirect('/index/')
+		return HttpResponseRedirect('/home/')
 
 	username = request.POST.get('username', '')
 	password = request.POST.get('password', '')
@@ -18,12 +18,12 @@ def login(request):
 
 	if user is not None and user.is_active:
 		auth.login(request, user)
-		return HttpResponseRedirect('/index/')
+		return HttpResponseRedirect('/home/')
 	else:
 		return render_to_response('login.html', RequestContext(request, locals()))
 
 def index(request):
-	return render_to_response('index.html', RequestContext(request, locals()))
+	return render_to_response('index2.html', RequestContext(request, locals()))
 
 def logout(request):
 	auth.logout(request)

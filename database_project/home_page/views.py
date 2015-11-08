@@ -6,5 +6,4 @@ from django.template.loader import get_template
 # Create your views here.
 
 def home(request):
-	a = request.path
-	return render_to_response('index.html',locals())
+	return render_to_response('index2.html',locals())

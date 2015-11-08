@@ -14,7 +14,6 @@
 	    <!--link href="{% static "css/home/style.css" %}" rel="stylesheet"-->
 	</head>
 	<body>
-		{{a}}
 		{% if request.user.is_authenticated %}
 			<p>
 				{{request.user}} also login
@@ -24,5 +23,11 @@
 			<p> not login~ <a href="/accounts/login/">login</a></p>
 		{% endif %}
 			<p><a href="/accounts/register/">註冊</a></p>
+		{% if perms.testdb.can_watch%}
+			<p>you are a member!</p>
+		{% else %}
+			<p>you can't see this, except you login</p>
+		{% endif%}
+		<a href="/test/">test</a>
 	</body>
 </html>
